@@ -35,13 +35,6 @@
             text-align: center;
             padding: 2vh 4vw;
         }
-        .updated {
-            position: absolute;
-            bottom: 1vh;
-            right: 1vw;
-            color: rgba(255,255,255,0.7);
-            font-size: 1vw;
-        }
     </style>
 </head>
 <body>
@@ -49,7 +42,6 @@
         <div class="line">IFS CLOUD CABLE CAR</div>
         <div id="status" class="status">LOADING...</div>
     </div>
-    <div id="updated" class="updated"></div>
 
     <script>
         async function updateStatus() {
@@ -59,7 +51,6 @@
                 
                 const status = data[0]?.lineStatuses?.[0]?.statusSeverityDescription || 'UNKNOWN';
                 document.getElementById('status').textContent = status.toUpperCase();
-                document.getElementById('updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
             } catch (e) {
                 document.getElementById('status').textContent = 'STATUS UNAVAILABLE';
             }
